@@ -73,5 +73,5 @@ public class AuthenticaticateController {
         return ((User)this.userDetailsService.loadUserByUsername(principal.getName()));
     }
 
-
+    
 }

@@ -7,6 +7,7 @@ import com.examportal.ExamPortalBackend.repository.RoleRepo;
 import com.examportal.ExamPortalBackend.repository.UserRepo;
 import com.examportal.ExamPortalBackend.repository.UserRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserServiceI{
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private RoleRepo roleRepo;
@@ -48,6 +52,8 @@ public class UserServiceImpl implements UserServiceI{
         });
 
         user.setUserRoles(userRoles);
+
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
 
         User save = this.userRepo.save(user);
 
