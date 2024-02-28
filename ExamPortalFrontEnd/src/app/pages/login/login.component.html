@@ -1,0 +1,51 @@
+<!-- <app-navebar></app-navebar> -->
+<div class="bootstrap-wrapper">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6 offset-md-3">
+
+                <mat-card style="margin-top: 50px;">
+
+                <div class="container text-center">
+
+                    <img src="../../../assets/logo.webp" alt="" />
+                </div>
+
+                <h2 class="text-center">Login Here!!</h2>
+
+                <form (ngSubmit)="formSubmit()">
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>User Name</mat-label>
+                        <input
+                        [(ngModel)]="loginData.username"
+                        name="userName"
+                        required
+                        matInput placeholder="Placeholder">
+                      </mat-form-field>
+
+                      <mat-form-field class="full-width" appearance="outline">
+                        <mat-label> User Password</mat-label>
+                        <input
+                        [(ngModel)]="loginData.password"
+                        name="password"
+                        required
+                        type="password" matInput placeholder="password">
+                      </mat-form-field>
+
+                      <div class="container">
+
+                        <button style="margin-left: 120px; margin-bottom: 30px;" type="submit" mat-raised-button color="primary">Login</button>
+                        <button style="margin-left: 20px; margin-bottom: 30px;" mat-raised-button color="accent">Clear</button>
+                      </div>
+
+
+                </form>
+            </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

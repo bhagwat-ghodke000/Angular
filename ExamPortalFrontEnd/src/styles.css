@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+.text-center{
+    text-align: center;
+}
+
+img{
+
+    height: 150px;
+    margin-top: 30px;
+}
+
+.navbar {
+    min-height: 80px; /* Adjust as needed */
+  }
+
+html, body { 
+    height: 100%; 
+    background: #E7E6DD ;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
