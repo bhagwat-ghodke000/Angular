@@ -9,6 +9,7 @@ import { adminGuard } from './services/admin.guard';
 import { normalGuard } from './services/normal.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 
 export const routes: Routes = [
 
@@ -43,6 +44,11 @@ export const routes: Routes = [
             {
                 path:'profile',
                 component:ProfileComponent,
+            },
+
+            {
+                path:'categories',
+                component:ViewCategoriesComponent,
             },
         ],
     },
