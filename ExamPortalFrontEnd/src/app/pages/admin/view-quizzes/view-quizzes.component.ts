@@ -25,7 +25,7 @@ export class ViewQuizzesComponent implements OnInit {
 
   quizzes=[
     {
-      qid:12,
+      quizId:12,
       title:"This is java releted question",
       description:"Java",
       maxMarks:"50",
@@ -36,7 +36,7 @@ export class ViewQuizzesComponent implements OnInit {
       }
     },
     {
-      qid:12,
+      quizId:12,
       title:"This is java releted question",
       description:"Java",
       maxMarks:"80",
@@ -61,6 +61,45 @@ export class ViewQuizzesComponent implements OnInit {
         Swal.fire('Error !','Error loading in data','error');
       }
     )
+  }
+
+  // Delete Quiz
+
+  deleteQuiz(quizId:any){
+
+    Swal.fire({
+      icon: 'info',
+      title: 'Are You Sure !!',
+      confirmButtonText: 'Delete',
+      showCancelButton: true,
+    }).then((result)=>{
+
+      if(result.isConfirmed){
+        this.quiz.delete(quizId).subscribe(
+          (data)=>{
+    
+          this.quizzes =  this.quizzes.filter((quiz)=>quiz.quizId != quizId)
+            Swal.fire('Success','Quizz Deleted Successfully','success');
+          },
+          (error)=>{
+            console.log(error);
+            Swal.fire('Error','Server Side error','error');
+          }
+        )
+      }
+    })
+      
+  //   this.quiz.delete(quizId).subscribe(
+  //     (data)=>{
+
+  //     this.quizzes =  this.quizzes.filter((quiz)=>quiz.quizId != quizId)
+  //       Swal.fire('Success','Quizz Deleted Successfully','success');
+  //     },
+  //     (error)=>{
+  //       console.log(error);
+  //       Swal.fire('Error','Server Side error','error');
+  //     }
+  //   )
   }
 
 

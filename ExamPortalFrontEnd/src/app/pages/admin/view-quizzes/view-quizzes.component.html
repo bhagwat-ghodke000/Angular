@@ -18,9 +18,10 @@
     <mat-card-actions>
         <button mat-flat-button color="accent">Questions</button>
         <button style="margin-left: 20px;" mat-stroked-button color="accent">Maximum marks : {{q.maxMarks}}</button>
-        <button style="margin-left: 20px;" mat-stroked-button color="accent">No Of Question : {{q.numberOfQuestion}}</button>
+        <button [routerLink]="'/admin/quiz/'+ q.quizId" style="margin-left: 20px;" mat-stroked-button color="accent">No Of Question : {{q.numberOfQuestion}}</button>
         <button style="margin-left: 20px;" mat-flat-button color="accent">Update</button>
         <button style="margin-left: 20px;" mat-flat-button color="accent">Attempts</button>
+        <button style="margin-left: 20px;" mat-flat-button color="warn" (click)="deleteQuiz(q.quizId)">DELETE</button>
     </mat-card-actions>
 
 </mat-card>
