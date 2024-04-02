@@ -1,5 +1,6 @@
 package com.examportal.ExamPortalBackend.controller;
 
+import com.examportal.ExamPortalBackend.entity.exam.Category;
 import com.examportal.ExamPortalBackend.entity.exam.Quiz;
 import com.examportal.ExamPortalBackend.service.QuizServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,32 @@ public class QuizController {
 
         this.quizService.deleteQuiz(quizId);
         return new ResponseEntity<>("This quiz is delete",HttpStatus.OK);
+    }
+
+    @GetMapping("/category/{categoryId}")
+    public ResponseEntity<List<Quiz>> getQuizzesOfCategory(@PathVariable long categoryId){
+
+        Category category = new Category();
+        category.setCategoryId(categoryId);
+        List<Quiz> quizzesOfCategory = this.quizService.getQuizzesOfCategory(category);
+
+        return new ResponseEntity<>(quizzesOfCategory,HttpStatus.OK);
+
+    }
+
+    @GetMapping("/activequizes")
+    public ResponseEntity<List<Quiz>> getActiveQuiz(){
+        List<Quiz> activeQuizzes = this.quizService.getActiveQuizzes();
+        return new ResponseEntity<>(activeQuizzes,HttpStatus.OK);
+    }
+
+    @GetMapping("/activequizofcategory/{categoryId}")
+    public ResponseEntity<List<Quiz>> getActiveQuizzesOfCategory(@PathVariable long categoryId){
+
+        Category category = new Category();
+        category.setCategoryId(categoryId);
+        List<Quiz> activeQuizzesOfCategory = this.quizService.getActiveQuizzesOfCategory(category);
+        return new ResponseEntity<>(activeQuizzesOfCategory,HttpStatus.OK);
     }
 
 

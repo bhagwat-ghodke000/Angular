@@ -1,0 +1,59 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+    <div class="container-fluid">
+
+        <div class="row">
+
+        <div class="col-md-2">
+
+       <h3>Instruction</h3>
+        </div>
+        <div class="col-md-8">
+
+            <ng-container *ngIf="question">
+
+                <h3>On going quiz {{quizzes.title}}</h3>
+
+            </ng-container>
+
+            <mat-card style="margin-top: 20px;" *ngFor="let q of question; let i=index">
+
+                <mat-card-content>
+
+                    <p> Q{{i+1}}. <span style="margin-left: 10px;" [innerHTML]="q.content"></span></p>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="row"style="margin-top: 20px;">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option1" [name]="i" />  {{q.option1}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option2" [name]="i" />  {{q.option2}}
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option3" [name]="i" />  {{q.option3}}
+                        </div>
+                        <div class="col-md-6">
+                            <input type="radio" [value]="q.option4" [name]="i" />  {{q.option4}}
+                        </div>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+
+            <div class="container text-center" style="margin-top: 20px; margin-bottom: 20px;">
+
+                <button  type="submit" mat-raised-button color="primary">Submit Quiz</button>
+              </div>
+
+        </div>
+    </div>
+
+    </div>
+</div>
+</div>

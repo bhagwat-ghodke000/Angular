@@ -19,6 +19,7 @@ public class QuestionController {
     @Autowired
     private QuestionServiceImpl questionService;
 
+    @Autowired
     private QuizServiceImpl quizService;
 
     @PostMapping("/")

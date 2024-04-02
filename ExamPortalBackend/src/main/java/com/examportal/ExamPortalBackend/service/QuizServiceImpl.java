@@ -1,5 +1,6 @@
 package com.examportal.ExamPortalBackend.service;
 
+import com.examportal.ExamPortalBackend.entity.exam.Category;
 import com.examportal.ExamPortalBackend.entity.exam.Quiz;
 import com.examportal.ExamPortalBackend.repository.QuizRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class QuizServiceImpl implements QuizServiceI{
         quiz1.setActive(quiz.isActive());
         quiz1.setQuestions(quiz.getQuestions());
         quiz1.setTitle(quiz.getTitle());
-        quiz.setMaxMarks(quiz.getMaxMarks());
+        quiz1.setMaxMarks(quiz.getMaxMarks());
         quiz1.setNumberOfQuestion(quiz.getNumberOfQuestion());
 
         Quiz save = this.quizRepo.save(quiz1);
@@ -54,5 +55,26 @@ public class QuizServiceImpl implements QuizServiceI{
     public void deleteQuiz(long quizId) {
 
         this.quizRepo.deleteById(quizId);
+    }
+
+    @Override
+    public List<Quiz> getQuizzesOfCategory(Category category) {
+        List<Quiz> result = this.quizRepo.findBycategory(category);
+        return result;
+    }
+
+    @Override
+    public List<Quiz> getActiveQuizzes() {
+
+        List<Quiz> byActive = this.quizRepo.findByActive(true);
+        return byActive;
+    }
+
+    @Override
+    public List<Quiz> getActiveQuizzesOfCategory(Category category) {
+
+        List<Quiz> byCategoryAndActive = this.quizRepo.findByCategoryAndActive(category, true);
+
+        return byCategoryAndActive;
     }
 }

@@ -1,5 +1,6 @@
 package com.examportal.ExamPortalBackend.service;
 
+import com.examportal.ExamPortalBackend.entity.exam.Category;
 import com.examportal.ExamPortalBackend.entity.exam.Quiz;
 
 import java.util.List;
@@ -16,4 +17,10 @@ public interface QuizServiceI {
     List<Quiz> getAllQuiz();
 
     void deleteQuiz(long quizId);
+
+    List<Quiz> getQuizzesOfCategory(Category category);
+
+    List<Quiz> getActiveQuizzes();
+
+    List<Quiz> getActiveQuizzesOfCategory(Category category);
 }
