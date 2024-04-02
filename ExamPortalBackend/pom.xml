@@ -11,6 +11,7 @@
 	</parent>
 	<groupId>com.examportal</groupId>
 	<artifactId>ExamPortalBackend</artifactId>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ExamPortalBackend</name>
 	<description>Demo project for Spring Boot</description>
